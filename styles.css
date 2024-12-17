@@ -7,10 +7,12 @@ body{
 .main{
     background-color: rgb(37, 37, 37);
     text-align: center;
-    margin: 20px 400px;
+    margin: 20px auto;
     padding: 40px 40px;
     border-radius: 20px;
     font-size: 20px;
+    width: 80%;
+    max-width: 1200px;
 }
 .title{
     margin :0;
@@ -96,29 +98,24 @@ details p{
 
 @media screen and (max-width: 480px) {
     .main {
-        width: 100%;
-        margin: 0;
-        padding: 20px 15px;
-        border-radius: 0;
+        width: 92%;
+        margin: 10px auto;
+        padding: 15px;
+        font-size: 16px;
     }
-
-    .title {
-        font-size: 20px;
-    }
-
+    
     .intro {
-        margin: 15px 5px;
+        margin: 15px 10px;
         font-size: 14px;
     }
-
+    
     details {
-        margin: 15px 0;
+        margin: 15px 5px;
         padding: 10px;
-        border-radius: 8px;
     }
-
+    
     details p {
-        padding: 15px 10px;
+        padding: 15px;
         margin: 15px 5px;
         font-size: 14px;
     }
