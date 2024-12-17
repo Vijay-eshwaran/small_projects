@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boolean</title>
+    <link rel="stylesheet" href="rock-paper-scissor.css">
+
+  </head>
+
+  <body style="font-family: monospace">
+    <h1>ROCK PAPER SCISSORS</h1>
+    <p class="name">by heisenberg</p>
+    <button
+        class="js-rock-button"
+      onclick="
+       game('rock');    
+    "
+    >
+    &#9994
+    </button>
+
+    <button
+      class="js-paper-button"
+      onclick="
+        game('paper');
+    "
+    >
+    &#128400
+    </button>
+
+    <button
+      class="js-scissors-button"
+      onclick="
+        game('scissors');
+    "
+    >
+    &#9996
+    </button>
+
+    <p class="js-result"></p>
+
+    <p class="js-moves"></p>
+
+    <p class="js-score"></p>
+
+    <button
+      onclick="
+        reset();
+    "
+    class="js-reset-btn"
+    >
+      reset points
+    </button>
+
+
+    <script src="rock-paper-scissor.js"></script>
+  </body>
+</html>
