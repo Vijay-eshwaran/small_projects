@@ -1,0 +1,10 @@
+body{
+    font-family: monospace;
+    background-color: rgb(0, 0, 0);
+    color: rgb(77, 77, 77);
+    text-align: center;
+}
+.list{
+    font-size: 20px;
+    color: green;
+}
