@@ -9,8 +9,12 @@ addBtn.addEventListener("click", function () {
     input.placeholder = "Please enter a task !!!!!";
     return;
   }
+
+
   todolist.push(input.value);
   input.value = "";
+
+
   console.log(todolist);
 });
 
@@ -20,8 +24,10 @@ input.addEventListener("keydown", function (event) {
       input.placeholder = "Please enter a task !!!!!";
       return;
     }
+
     todolist.push(input.value);
     input.value = "";
+    
     console.log(todolist);
   }
 });
