@@ -64,3 +64,71 @@ h1{
     font-size: 15px;
     color: green;
 }
+
+/* Responsive Design Media Queries */
+@media screen and (max-width: 768px) {
+    .main {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 10px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .list {
+        grid-template-columns: 1fr;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .name-input,
+    .date-input,
+    .add-btn {
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main,
+    .list {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .name-input,
+    .date-input {
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    .add-btn,
+    .delete-btn {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* Ensure proper scaling on mobile devices */
+@media screen and (max-width: 320px) {
+    body {
+        padding: 5px;
+    }
+
+    .main,
+    .list {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+}
