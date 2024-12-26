@@ -64,6 +64,18 @@ h1{
     font-size: 15px;
     color: green;
 }
+.footer{
+    text-align: center;
+}
+.back-btn{
+    font-size: 15px;
+    padding: 10px 20px;
+    margin-top: 15px;
+    background-color: rgb(63, 63, 63);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
 
 /* Responsive Design Media Queries */
 @media screen and (max-width: 768px) {
