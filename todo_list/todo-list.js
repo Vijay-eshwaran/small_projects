@@ -3,10 +3,14 @@ const dateInput = document.querySelector(".date-input");
 const addBtn = document.querySelector(".add-btn");
 const list = document.querySelector(".list");
 const deleteBtn = document.querySelector(".delete-btn");
+const clearBtn = document.querySelector(".clear-btn");
 
 
 
-const todolist = [];
+const todolist = JSON.parse(localStorage.getItem('todolist')) || [];
+
+renderTodoList();
+
 
 
 
@@ -30,6 +34,7 @@ function renderTodoList() {
 
 function deleteTodoList(index) {
   todolist.splice(index, 1);
+  localStorage.setItem('todolist', JSON.stringify(todolist));
   renderTodoList();
   if(list.innerHTML === ''){
     list.innerHTML = 'Empty :)'
@@ -58,6 +63,7 @@ addBtn.addEventListener("click", function () {
   dateInput.value = "";
 
   console.log(todolist);
+  localStorage.setItem('todolist', JSON.stringify(todolist));
   renderTodoList();
 
 });
@@ -79,6 +85,13 @@ nameInput.addEventListener("keydown", function (event) {
     input.value = "";
 
     console.log(todolist);
+    localStorage.setItem('todolist', JSON.stringify(todolist));
     renderTodoList();
   }
+});
+
+clearBtn.addEventListener("click", function () {
+  todolist.splice(0, todolist.length);
+  localStorage.setItem('todolist', JSON.stringify(todolist));
+  renderTodoList();
 });
