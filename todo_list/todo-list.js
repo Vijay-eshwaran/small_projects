@@ -16,18 +16,15 @@ renderTodoList();
 
 function renderTodoList() {
   let todohtml = '';
-  for (let i = 0; i < todolist.length; i++) {
-    const todoobj = todolist[i];
-    // const name = todoobj.title;
-    // const date = todoobj.date;
-    const {name} = todoobj;
-    const {date} = todoobj;
-    const html = `
-    <div class="todoname">${name}</div>  
-    <div class="tododate">${date}</div>
+  
+  todolist.forEach(function(obj,i){
+    todohtml += `
+    <div class="todoname">${obj.name}</div>
+    <div class="tododate">${obj.date}</div>
     <button class="delete-btn" onclick="deleteTodoList(${i})">Delete</button>`;
-    todohtml += html;
-  }
+
+  });
+  
   console.log(todohtml);
   document.querySelector('.list').innerHTML = todohtml;
 }
@@ -62,7 +59,7 @@ addBtn.addEventListener("click", function () {
   nameInput.value = "";
   dateInput.value = "";
 
-  console.log(todolist);
+  // console.log(todolist);
   localStorage.setItem('todolist', JSON.stringify(todolist));
   renderTodoList();
 
@@ -84,7 +81,7 @@ nameInput.addEventListener("keydown", function (event) {
     todolist.push(obj);
     input.value = "";
 
-    console.log(todolist);
+    // console.log(todolist);
     localStorage.setItem('todolist', JSON.stringify(todolist));
     renderTodoList();
   }
