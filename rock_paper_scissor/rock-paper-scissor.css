@@ -16,7 +16,7 @@ body {
         margin-right: 10px;
     }
     .js-result{
-      font-size: 20px;
+      font-size: 35px;
       color: green;
       font-weight: bolder;
     }
@@ -39,6 +39,15 @@ body {
     }
 
     .js-reset-btn{
+        font-size: 15px;
+        padding: 10px 20px;
+        margin-top: 15px;
+        background-color: rgb(63, 63, 63);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+    .js-autoplay-btn{
         font-size: 15px;
         padding: 10px 20px;
         margin-top: 15px;

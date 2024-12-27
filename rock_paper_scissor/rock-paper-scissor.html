@@ -1,63 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Boolean</title>
-    <link rel="stylesheet" href="rock-paper-scissor.css">
 
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boolean</title>
+  <link rel="stylesheet" href="rock-paper-scissor.css">
 
-  <body style="font-family: monospace">
-    <h1>ROCK PAPER SCISSORS</h1>
-    <p class="name">by Vijay(heisenberg)</p>
-    <button
-        class="js-rock-button"
-      onclick="
+</head>
+
+<body style="font-family: monospace">
+  <h1>ROCK PAPER SCISSORS</h1>
+  <p class="name">by Vijay(heisenberg)</p>
+  <button class="js-rock-button" onclick="
        game('rock');    
-    "
-    >
+    ">
     &#9994
-    </button>
+  </button>
 
-    <button
-      class="js-paper-button"
-      onclick="
+  <button class="js-paper-button" onclick="
         game('paper');
-    "
-    >
+    ">
     &#128400
-    </button>
+  </button>
 
-    <button
-      class="js-scissors-button"
-      onclick="
+  <button class="js-scissors-button" onclick="
         game('scissors');
-    "
-    >
+    ">
     &#9996
-    </button>
+  </button>
 
-    <p class="js-result"></p>
+  <p class="js-result"></p>
 
-    <p class="js-moves"></p>
+  <p class="js-moves"></p>
 
-    <p class="js-score"></p>
+  <p class="js-score"></p>
 
-    <button
-      onclick="
+  <button onclick="
         reset();
-    "
-    class="js-reset-btn"
-    >
-      reset points
-    </button>
+    " class="js-reset-btn">
+    reset points
+  </button>
+
+  <button onclick="autoplay()" class="js-autoplay-btn">on autoplay</button>
 
 
-    <div class="footer">
-      <a href="https://vijay-eshwaran.github.io/small_projects/"> <button class="js-home-btn"> back to home </button> </a>
-    </div>
+  <div class="footer">
+    <a href="https://vijay-eshwaran.github.io/small_projects/"> <button class="js-home-btn"> back to home </button> </a>
+  </div>
 
-    <script src="rock-paper-scissor.js"></script>
-  </body>
+  <script src="rock-paper-scissor.js"></script>
+</body>
+
 </html>

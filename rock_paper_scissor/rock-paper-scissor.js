@@ -1,6 +1,3 @@
-let com;
-let r;
-
 const points = JSON.parse(localStorage.getItem("points")) || {
   wins: 0,
   lose: 0,
@@ -17,7 +14,7 @@ let scissor = "&#9996";
 updateScore();
 
 function game(player) {
-  Com();
+  let com = Com();
   if (player == "rock") {
     if (com == "rock") {
       points.draw++;
@@ -68,11 +65,11 @@ function game(player) {
 function Com() {
   r = Math.random() * 10;
   if (r >= 0 && r < 3) {
-    com = "rock";
+    return "rock";
   } else if (r >= 3 && r < 7) {
-    com = "scissors";
+    return "scissors";
   } else {
-    com = "paper";
+    return "paper";
   }
 }
 
@@ -89,4 +86,25 @@ function updateScore() {
   document.querySelector(
     ".js-score"
   ).innerHTML = `wins ${points.wins} lose ${points.lose} draw ${points.draw}`;
+}
+
+let isAutoplay = false;
+let interval;
+
+function autoplay(){
+  if(!isAutoplay){
+    interval = setInterval(function(){
+      const player = Com();
+      game(player);
+    },800);
+    isAutoplay = true;
+    document.querySelector('.js-autoplay-btn').innerHTML = 'off autoplay';
+    document.querySelector('.js-autoplay-btn').style.border = '1px solid red';
+  }
+  else{
+    clearInterval(interval);
+    isAutoplay = false;
+    document.querySelector('.js-autoplay-btn').innerHTML = 'on autoplay';
+    document.querySelector('.js-autoplay-btn').style.border = 'none';
+  }
 }
