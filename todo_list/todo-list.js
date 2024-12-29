@@ -16,12 +16,20 @@ function renderTodoList() {
     todohtml += `
     <div class="todoname">${obj.name}</div>
     <div class="tododate">${obj.date}</div>
-    <button class="delete-btn" onclick="deleteTodoList(${i})">Delete</button>`;
+    <button class="delete-btn">Delete</button>`;
   });
 
   console.log(todohtml);
   document.querySelector(".list").innerHTML = todohtml;
+
+  document.querySelectorAll('.delete-btn').forEach((btn,i) => {
+    btn.addEventListener('click',() => {
+      deleteTodoList(i);
+    })
+  })
 }
+
+
 
 function deleteTodoList(index) {
   todolist.splice(index, 1);

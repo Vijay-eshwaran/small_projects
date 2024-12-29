@@ -33,6 +33,18 @@ document.querySelector('.js-autoplay-btn').addEventListener('click',() => {
     autoplay();
 })
 
+document.body.addEventListener('keydown',(e) => {
+    if(e.key === 'r'){
+        game('rock');
+    }
+    else if(e.key === 'p'){
+        game('paper');
+    }
+    else if(e.key === 's'){
+        game('scissors');
+    }
+})
+
 function game(player) {
   let com = Com();
   if (player == "rock") {
