@@ -22,14 +22,16 @@ function renderTodoList() {
   console.log(todohtml);
   document.querySelector(".list").innerHTML = todohtml;
 
-  document.querySelectorAll('.delete-btn').forEach((btn,i) => {
-    btn.addEventListener('click',() => {
+  document.querySelectorAll(".delete-btn").forEach((btn, i) => {
+    btn.addEventListener("click", () => {
       deleteTodoList(i);
-    })
-  })
+    });
+  });
+
+  if (list.innerHTML === "") {
+    list.innerHTML = "Empty :)";
+  }
 }
-
-
 
 function deleteTodoList(index) {
   todolist.splice(index, 1);
@@ -92,7 +94,7 @@ clearBtn.addEventListener("click", () => {
   if (todolist.length > 0) {
     interval = setInterval(() => {
       todolist.pop();
-      if(todolist.length === 0){
+      if (todolist.length === 0) {
         clearInterval(interval);
       }
       localStorage.setItem("todolist", JSON.stringify(todolist));
