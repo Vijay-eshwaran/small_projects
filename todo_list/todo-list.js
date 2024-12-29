@@ -12,7 +12,7 @@ renderTodoList();
 function renderTodoList() {
   let todohtml = "";
 
-  todolist.forEach(function (obj, i) {
+  todolist.forEach((obj, i) => {
     todohtml += `
     <div class="todoname">${obj.name}</div>
     <div class="tododate">${obj.date}</div>
@@ -32,7 +32,7 @@ function deleteTodoList(index) {
   }
 }
 
-addBtn.addEventListener("click", function () {
+addBtn.addEventListener("click", () => {
   if (nameInput.value === "") {
     nameInput.placeholder = "Please enter a task !!!!!";
     return;
@@ -55,7 +55,7 @@ addBtn.addEventListener("click", function () {
   renderTodoList();
 });
 
-nameInput.addEventListener("keydown", function (event) {
+nameInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     if (nameInput.value === "") {
       nameInput.placeholder = "Please enter a task !!!!!";
@@ -76,13 +76,13 @@ nameInput.addEventListener("keydown", function (event) {
   }
 });
 
-clearBtn.addEventListener("click", function () {
+clearBtn.addEventListener("click", () => {
   // todolist.splice(0, todolist.length);
   // localStorage.setItem('todolist', JSON.stringify(todolist));
   // renderTodoList();
   let interval;
   if (todolist.length > 0) {
-    interval = setInterval(function () {
+    interval = setInterval(() => {
       todolist.pop();
       if(todolist.length === 0){
         clearInterval(interval);

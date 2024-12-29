@@ -93,7 +93,7 @@ let interval;
 
 function autoplay(){
   if(!isAutoplay){
-    interval = setInterval(function(){
+    interval = setInterval(() => {
       const player = Com();
       game(player);
     },800);
