@@ -13,6 +13,26 @@ let scissor = "&#9996";
 
 updateScore();
 
+document.querySelector('.js-rock-button').addEventListener('click',() => {
+    game('rock');
+})
+
+document.querySelector('.js-paper-button').addEventListener('click',() => {
+    game('paper');
+})
+
+document.querySelector('.js-scissors-button').addEventListener('click',() => {
+    game('scissors');
+})
+
+document.querySelector('.js-reset-btn').addEventListener('click',() => {
+    reset();
+})
+
+document.querySelector('.js-autoplay-btn').addEventListener('click',() => {
+    autoplay();
+})
+
 function game(player) {
   let com = Com();
   if (player == "rock") {
