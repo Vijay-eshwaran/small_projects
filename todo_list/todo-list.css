@@ -1,7 +1,7 @@
 body{
     font-family: monospace;
     background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+    color: whitesmoke;
 }
 
 h1{
@@ -27,15 +27,11 @@ h1{
     font-size: 15px;
     padding: 6px;
 }
-.name-input:placeholder,
-.date-input:placeholder{
-    color: rgb(75, 75, 75);
-}
 .add-btn{
     font-size: 15px;
     padding: 10px;
     background-color: green ;
-    color: white;
+    color: whitesmoke;
     border: none;
     cursor: pointer;
 }
@@ -49,7 +45,7 @@ h1{
     font-size: 15px;
     padding: 10px;
     background-color: red ;
-    color: white;
+    color: whitesmoke;
     border: none;
     cursor: pointer;
     height: 40px;
