@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo-list</title>
+    <title>Dynamic Todo List</title>
     <link rel="stylesheet" href="todo-list.css" />
   </head>
   <body>
-    <h1>Todo-list</h1>
+    <h1>Todo List</h1>
 
     <div class="main">
       <input type="text" class="name-input" placeholder="Enter your task" />
@@ -16,7 +16,23 @@
     </div>
     <div class="list"></div>
     <div class="clear-btn-div"><button class="clear-btn">clear all</button></div>
-    <div class="footer"> <a href="../index.html"><button class="back-btn">back to home</button></a></div>
+    
+    <div class="footer">
+      <div class="project-info">
+          <h2>Dynamic Todo List Application</h2>
+          <p class="project-description">
+              A modern task management application with features like task addition/deletion, 
+              date scheduling, and data persistence. Built with JavaScript, HTML5, and CSS3.
+          </p>
+          <div class="feature-list">
+              <span class="feature">✓ Add/Delete Tasks</span>
+              <span class="feature">✓ Date Organization</span>
+              <span class="feature">✓ Local Storage</span>
+              <span class="feature">✓ Animations</span>
+          </div>
+      </div>
+      <a href="../index.html"><button class="back-btn">back to home</button></a>
+    </div>
 
     <script src="todo-list.js"></script>
   </body>

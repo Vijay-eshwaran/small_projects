@@ -120,3 +120,36 @@ details p{
         font-size: 14px;
     }
 }
+
+.project-title a {
+    color: #4CAF50;  /* A softer green color */
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.project-title a:hover {
+    color: #45a049;  /* Darker shade for hover */
+    text-decoration: underline;
+}
+
+.project-title {
+    padding: 15px;
+    background-color: #1a1a1a;  /* Slightly lighter than black */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.project-title:hover {
+    background-color: #111111;  /* Even lighter on hover */
+}
+
+details p {
+    padding: 15px;
+    line-height: 1.6;
+    background-color: #1a1a1a;
+    border-radius: 0 0 5px 5px;
+    margin-top: -10px;
+}
