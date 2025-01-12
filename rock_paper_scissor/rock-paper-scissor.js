@@ -7,9 +7,9 @@ const points = JSON.parse(localStorage.getItem("points")) || {
 let result = document.querySelector(".js-result");
 let moves = document.querySelector(".js-moves");
 
-let rocky = "&#9994";
-let paper = "&#128400";
-let scissor = "&#9996";
+let rocky = "✊";
+let paper = "✋";
+let scissor = "✌️";
 
 updateScore();
 
