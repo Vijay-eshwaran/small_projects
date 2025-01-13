@@ -5,6 +5,8 @@ import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions } from "../data/deliveryOptions.js"
 
 
+function rendorOrderSummary(){
+
 let cartSummaryHtml = ``;
 
 cart.forEach((cartItem) => {
@@ -121,6 +123,11 @@ document.querySelectorAll('.js-delivery-option')
   element.addEventListener('click', () => {
     const {productId, deliveryOptionId} = element.dataset;
     updateDeliveryDate(productId,deliveryOptionId);
+    rendorOrderSummary();
+
   })
 })
 
+}
+
+rendorOrderSummary();
