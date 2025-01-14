@@ -22,7 +22,7 @@ export const products = [
       stars: 4.5,
       count: 87
     },
-    price: 599,
+    price: 200,
     keywords: [
       "socks",
       "sports",
@@ -37,7 +37,7 @@ export const products = [
       stars: 4,
       count: 127
     },
-    price: 1299,
+    price: 1000,
     keywords: [
       "sports",
       "basketballs"
@@ -51,7 +51,7 @@ export const products = [
       stars: 4.5,
       count: 56
     },
-    price: 699,
+    price: 600,
     keywords: [
       "tshirts",
       "apparel",
@@ -68,7 +68,7 @@ export const products = [
       stars: 5,
       count: 2197
     },
-    price: 1499,
+    price: 1500,
     keywords: [
       "toaster",
       "kitchen",
@@ -83,7 +83,7 @@ export const products = [
       stars: 4,
       count: 37
     },
-    price: 999,
+    price: 500,
     keywords: [
       "plates",
       "kitchen",
@@ -98,7 +98,7 @@ export const products = [
       stars: 4.5,
       count: 175
     },
-    price: 2499,
+    price: 2000,
     keywords: [
       "kitchen",
       "cookware"
@@ -112,7 +112,7 @@ export const products = [
       stars: 4.5,
       count: 317
     },
-    price: 1299,
+    price: 900,
     keywords: [
       "hoodies",
       "sweaters",
@@ -127,7 +127,7 @@ export const products = [
       stars: 4.5,
       count: 144
     },
-    price: 1999,
+    price: 1200,
     keywords: [
       "bathroom",
       "washroom",
@@ -144,7 +144,7 @@ export const products = [
       stars: 4.5,
       count: 305
     },
-    price: 549,
+    price: 350,
     keywords: [
       "bathroom",
       "cleaning"
@@ -158,7 +158,7 @@ export const products = [
       stars: 4,
       count: 89
     },
-    price: 2999,
+    price: 1800,
     keywords: [
       "shoes",
       "running shoes",
@@ -173,7 +173,7 @@ export const products = [
       stars: 4.5,
       count: 235
     },
-    price: 899,
+    price: 750,
     keywords: [
       "robe",
       "swimsuit",
@@ -192,7 +192,7 @@ export const products = [
       stars: 4.5,
       count: 30
     },
-    price: 599,
+    price: 550,
     keywords: [
       "accessories",
       "shades"
@@ -206,7 +206,7 @@ export const products = [
       stars: 4.5,
       count: 562
     },
-    price: 899,
+    price: 500,
     keywords: [
       "footwear",
       "sandals",
@@ -223,7 +223,7 @@ export const products = [
       stars: 4.5,
       count: 232
     },
-    price: 1999,
+    price: 1400,
     keywords: [
       "bedroom",
       "curtains",
@@ -238,7 +238,7 @@ export const products = [
       stars: 4,
       count: 160
     },
-    price: 799,
+    price: 450,
     keywords: [
       "shorts",
       "apparel",
@@ -253,7 +253,7 @@ export const products = [
       stars: 5,
       count: 846
     },
-    price: 1499,
+    price: 1550,
     keywords: [
       "water boiler",
       "appliances",
@@ -268,7 +268,7 @@ export const products = [
       stars: 4,
       count: 99
     },
-    price: 899,
+    price: 450,
     keywords: [
       "kleenex",
       "tissues",
@@ -285,7 +285,7 @@ export const products = [
       stars: 4,
       count: 215
     },
-    price: 399,
+    price: 300,
     keywords: [
       "hats",
       "straw hats",
@@ -301,7 +301,7 @@ export const products = [
       stars: 4.5,
       count: 52
     },
-    price: 999,
+    price: 1000,
     keywords: [
       "jewelry",
       "accessories",
@@ -316,7 +316,7 @@ export const products = [
       stars: 4.5,
       count: 2465
     },
-    price: 999,
+    price: 1000,
     keywords: [
       "hooded",
       "hoodies",
