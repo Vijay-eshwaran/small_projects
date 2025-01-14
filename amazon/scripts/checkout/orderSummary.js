@@ -1,29 +1,30 @@
-import { cart, removeFromCart,updateDeliveryDate } from "../../data/cart.js";
+import { cart, removeFromCart, updateDeliveryDate } from "../../data/cart.js";
 import { getProduct } from "../../data/products.js"
 import { formatCurrency } from "../utils/money.js";
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions, getDeliveryOption } from "../../data/deliveryOptions.js"
+import { rendorPaymentSummary } from "./paymentSummary.js";
 
 
-export function rendorOrderSummary(){
+export function rendorOrderSummary() {
 
-let cartSummaryHtml = ``;
+  let cartSummaryHtml = ``;
 
-cart.forEach((cartItem) => {
+  cart.forEach((cartItem) => {
 
-  const productId = cartItem.productId;
+    const productId = cartItem.productId;
 
-  let matchingProduct = getProduct(productId);
+    let matchingProduct = getProduct(productId);
 
-  const deliveryOptionId = cartItem.deliveryOptionId;
+    const deliveryOptionId = cartItem.deliveryOptionId;
 
-  let deliveryOption = getDeliveryOption(deliveryOptionId);
-  
-  const today = dayjs();
-  const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
-  const dateString = deliveryDate.format('dddd, MMMM D');
+    let deliveryOption = getDeliveryOption(deliveryOptionId);
 
-  cartSummaryHtml += `
+    const today = dayjs();
+    const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
+    const dateString = deliveryDate.format('dddd, MMMM D');
+
+    cartSummaryHtml += `
     <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
             <div class="delivery-date">
               ${dateString}
@@ -62,21 +63,21 @@ cart.forEach((cartItem) => {
             </div>
           </div>
     `;
-});
+  });
 
-function deliveryOptionsHtml(matchingProduct, cartItem) {
+  function deliveryOptionsHtml(matchingProduct, cartItem) {
 
-  let html = '';
-  deliveryOptions.forEach((deliveryOption) => {
-    const today = dayjs();
-    const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
-    const dateString = deliveryDate.format('dddd, MMMM D');
+    let html = '';
+    deliveryOptions.forEach((deliveryOption) => {
+      const today = dayjs();
+      const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
+      const dateString = deliveryDate.format('dddd, MMMM D');
 
-    const priceString = deliveryOption.price === 0 ? 'FREEE' : `₹${deliveryOption.price}`
+      const priceString = deliveryOption.price === 0 ? 'FREEE' : `₹${deliveryOption.price}`
 
-    const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
+      const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
 
-    html += `
+      html += `
     <div class="delivery-option js-delivery-option" data-product-id="${matchingProduct.id}" data-delivery-option-id="${deliveryOption.id}">
                   <input type="radio"
                   ${isChecked ? 'checked' : ''}
@@ -92,30 +93,31 @@ function deliveryOptionsHtml(matchingProduct, cartItem) {
                   </div>
                 </div>
     `
-  })
-  return html;
-}
+    })
+    return html;
+  }
 
 
 
-document.querySelector('.js-order-summary').innerHTML = cartSummaryHtml;  
+  document.querySelector('.js-order-summary').innerHTML = cartSummaryHtml;
 
-document.querySelectorAll('.js-delete-link').forEach((link) => {
-  link.addEventListener('click', () => {
-    const productId = link.dataset.productId;
-    removeFromCart(productId);
-    document.querySelector(`.js-cart-item-container-${productId}`).remove();
-  })
-});
+  document.querySelectorAll('.js-delete-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      const productId = link.dataset.productId;
+      removeFromCart(productId);
+      document.querySelector(`.js-cart-item-container-${productId}`).remove();
+      rendorPaymentSummary();
+    })
+  });
 
-document.querySelectorAll('.js-delivery-option')
-.forEach( (element) => {
-  element.addEventListener('click', () => {
-    const {productId, deliveryOptionId} = element.dataset;
-    updateDeliveryDate(productId,deliveryOptionId);
-    rendorOrderSummary();
-
-  })
-})
+  document.querySelectorAll('.js-delivery-option')
+    .forEach((element) => {
+      element.addEventListener('click', () => {
+        const { productId, deliveryOptionId } = element.dataset;
+        updateDeliveryDate(productId, deliveryOptionId);
+        rendorOrderSummary();
+        rendorPaymentSummary();
+      })
+    })
 
 }
