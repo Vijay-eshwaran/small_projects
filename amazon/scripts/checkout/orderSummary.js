@@ -25,7 +25,7 @@ export function rendorOrderSummary() {
     const dateString = deliveryDate.format('dddd, MMMM D');
 
     cartSummaryHtml += `
-    <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
+    <div class="cart-item-container js-cart-item-container js-cart-item-container-${matchingProduct.id}">
             <div class="delivery-date">
               ${dateString}
             </div>
@@ -41,14 +41,14 @@ export function rendorOrderSummary() {
                 <div class="product-price">
                   ₹${formatCurrency(matchingProduct.price)}
                 </div>
-                <div class="product-quantity">
+                <div class="product-quantity js-product-quantity-${matchingProduct.id}">
                   <span>
                     Quantity: <span class="quantity-label">${cartItem.quantity}</span>
                   </span>
                   <span class="update-quantity-link link-primary">
                     Update
                   </span>
-                  <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${cartItem.productId}">
+                  <span class="delete-quantity-link link-primary js-delete-link js-delete-link-${matchingProduct.id}" data-product-id="${cartItem.productId}">
                     Delete
                   </span>
                 </div>
@@ -65,7 +65,7 @@ export function rendorOrderSummary() {
     `;
   });
 
-  function deliveryOptionsHtml(matchingProduct, cartItem) {
+   function deliveryOptionsHtml(matchingProduct, cartItem) {
 
     let html = '';
     deliveryOptions.forEach((deliveryOption) => {
