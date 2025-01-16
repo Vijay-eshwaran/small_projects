@@ -5,37 +5,43 @@ import { formatCurrency } from "../utils/money.js"
 
 export function rendorPaymentSummary() {
 
-    let productPrice = 0;
-    let shippingPrice = 0;
+  let productPrice = 0;
+  let shippingPrice = 0;
 
-    cart.forEach((cartItem) => {
+  cart.forEach((cartItem) => {
 
-        const product = getProduct(cartItem.productId);
-        productPrice += product.price * cartItem.quantity;
+    const product = getProduct(cartItem.productId);
+    productPrice += product.price * cartItem.quantity;
 
-        const deliveryOption = getDeliveryOption(cartItem.deliveryOptionId);
-        shippingPrice += deliveryOption.price;
+    const deliveryOption = getDeliveryOption(cartItem.deliveryOptionId);
+    shippingPrice += deliveryOption.price;
 
-    })
+  })
 
-    console.log(productPrice);
-    console.log(shippingPrice);
+  console.log(productPrice);
+  console.log(shippingPrice);
 
-    const totalBeforeTax = productPrice + shippingPrice;
-    console.log(totalBeforeTax);
-    const tax = totalBeforeTax * 0.1;
-    console.log(tax);
-    const totalprice = totalBeforeTax + tax;
-    console.log(totalprice);
+  const totalBeforeTax = productPrice + shippingPrice;
+  console.log(totalBeforeTax);
+  const tax = totalBeforeTax * 0.1;
+  console.log(tax);
+  const totalprice = totalBeforeTax + tax;
+  console.log(totalprice);
+
+  let cartQuantity = 0;
+
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
 
 
-    const paymentSummaryHtml = `
+  const paymentSummaryHtml = `
     <div class="payment-summary-title">
             Order Summary
           </div>
 
           <div class="payment-summary-row">
-            <div>Items (${cart.length}):</div>
+            <div>Items (${cartQuantity}):</div>
             <div class="payment-summary-money">₹${formatCurrency(productPrice)}</div>
           </div>
 
@@ -64,6 +70,6 @@ export function rendorPaymentSummary() {
           </button>
     `
 
-    document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHtml;
+  document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHtml;
 
 }
