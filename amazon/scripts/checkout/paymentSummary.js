@@ -18,15 +18,9 @@ export function rendorPaymentSummary() {
 
   })
 
-  console.log(productPrice);
-  console.log(shippingPrice);
-
   const totalBeforeTax = productPrice + shippingPrice;
-  console.log(totalBeforeTax);
   const tax = totalBeforeTax * 0.1;
-  console.log(tax);
   const totalprice = totalBeforeTax + tax;
-  console.log(totalprice);
 
   let cartQuantity = 0;
 
