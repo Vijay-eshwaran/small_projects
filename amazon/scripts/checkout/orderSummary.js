@@ -39,7 +39,7 @@ export function rendorOrderSummary() {
                   ${matchingProduct.name}
                 </div>
                 <div class="product-price">
-                  ₹${formatCurrency(matchingProduct.price)}
+                  ${matchingProduct.getPrice()}
                 </div>
                 <div class="product-quantity js-product-quantity-${matchingProduct.id}">
                   <span>
