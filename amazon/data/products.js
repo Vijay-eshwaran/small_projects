@@ -37,6 +37,28 @@ class Product {
     return `₹${formatCurrency(this.price)}`
 
   }
+
+  extraInfoHtml(){
+    return '';
+  }
+} 
+
+class Clothing extends Product {
+
+  shirtChartLink; 
+
+  constructor(productDetails) {
+    super(productDetails);
+    this.shirtChartLink = productDetails.sizeChartLink;
+  }
+
+  extraInfoHtml() {
+    return `
+      <a href="${this.shirtChartLink}" target="_blank">Size chart</a>
+    `
+  }
+
+
 }
 
 
@@ -700,5 +722,8 @@ export const products = [
     ]
   }
 ].map( (productDetails) => {
+  if(productDetails.type === "clothing") {
+    return new Clothing(productDetails);
+  }
   return new Product(productDetails);
 });
