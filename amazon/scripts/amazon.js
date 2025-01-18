@@ -50,7 +50,6 @@ products.forEach((product) => {
           ${product.extraInfoHtml()}
 
           <div class="product-spacer"></div>
-y
           <div class="added-to-cart">
             <img src="images/icons/checkmark.png" />
             Added
