@@ -1,4 +1,4 @@
-import { cart } from "../../data/cart.js";
+import { cart, saveToStorage } from "../../data/cart.js";
 import { getProduct } from "../../data/products.js"
 import { getDeliveryOption } from "../../data/deliveryOptions.js";
 import { formatCurrency } from "../utils/money.js"
@@ -65,5 +65,27 @@ export function rendorPaymentSummary() {
     `
 
   document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHtml;
+
+  document.querySelector('.button-primary').addEventListener('click', () => {
+    if (cart.length == 0) {
+      alert('Cart is empty');
+      return;
+    }
+    document.querySelector('.js-order-summary').innerHTML = `
+    <p style="color: #ff6600; font-size: 16px; font-weight: bold;">Cart is empty</p>
+    <a href="amazon.html" style="color: #0066cc; font-size: 14px; margin-top: 10px; display: inline-block;">
+        BUY MORE...
+    </a>
+`;
+    document.querySelector('.js-payment-summary').innerHTML = `
+    <span style="color: #666; font-size: 14px; font-family: Arial, sans-serif; text-align: center; display: inline-block;">
+        Shop now
+    </span>
+`;
+
+    cart.splice(0, cart.length);
+    saveToStorage();
+    
+  })
 
 }

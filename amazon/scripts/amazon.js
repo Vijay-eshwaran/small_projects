@@ -50,6 +50,7 @@ products.forEach((product) => {
           ${product.extraInfoHtml()}
 
           <div class="product-spacer"></div>
+          
           <div class="added-to-cart">
             <img src="images/icons/checkmark.png" />
             Added
@@ -75,13 +76,41 @@ function updateCart() {
 }
 
 
+// document.querySelectorAll('.js-add-to-cart').forEach(
+//   (button) => {
+
+//     button.addEventListener('click', () => {
+
+//       console.log('Add to cart button clicked');
+
+//       const productId = button.dataset.productId;
+//       const quantitySelect = button.parentElement.querySelector('select');
+//       const quantity = Number(quantitySelect.value);
+
+//       addToCart(productId, quantity);
+//       updateCart(quantity);
+//     })
+//   }
+// )
+
 document.querySelectorAll('.js-add-to-cart').forEach(
   (button) => {
 
     button.addEventListener('click', () => {
 
       const productId = button.dataset.productId;
-      addToCart(productId);
+      const quantitySelect = button.parentElement.querySelector('select');
+      const quantity = Number(quantitySelect.value);
+
+      button.classList.add('added-to-cart-button');
+      button.textContent = 'Added';
+      
+      setTimeout(() => {
+        button.classList.remove('added-to-cart-button');
+        button.textContent = 'Add to Cart';
+      }, 1000);
+
+      addToCart(productId, quantity);
       updateCart();
     })
   }

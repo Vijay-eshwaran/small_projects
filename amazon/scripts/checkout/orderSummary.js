@@ -45,9 +45,9 @@ export function rendorOrderSummary() {
                   <span>
                     Quantity: <span class="quantity-label">${cartItem.quantity}</span>
                   </span>
-                  <span class="update-quantity-link link-primary">
+                  <!--<span class="update-quantity-link link-primary">
                     Update
-                  </span>
+                  </span>-->
                   <span class="delete-quantity-link link-primary js-delete-link js-delete-link-${matchingProduct.id}" data-product-id="${cartItem.productId}">
                     Delete
                   </span>
@@ -65,7 +65,7 @@ export function rendorOrderSummary() {
     `;
   });
 
-   function deliveryOptionsHtml(matchingProduct, cartItem) {
+  function deliveryOptionsHtml(matchingProduct, cartItem) {
 
     let html = '';
     deliveryOptions.forEach((deliveryOption) => {
@@ -106,6 +106,19 @@ export function rendorOrderSummary() {
       const productId = link.dataset.productId;
       removeFromCart(productId);
       document.querySelector(`.js-cart-item-container-${productId}`).remove();
+      if(cart.length === 0) { 
+        document.querySelector('.js-order-summary').innerHTML = `
+        <div class="cart-item-container">
+            <div class="cart-item-details-grid">
+              <div class="cart-item-details">
+                <div class="product-name">
+                  Cart is Empty
+                </div>
+              </div>              
+            </div>
+          </div>
+        `
+    }
       rendorPaymentSummary();
     })
   });
@@ -120,4 +133,21 @@ export function rendorOrderSummary() {
       })
     })
 
+    if(cart.length === 0) { 
+        document.querySelector('.js-order-summary').innerHTML = `
+        <div class="cart-item-container">
+            <div class="cart-item-details-grid">
+              <div class="cart-item-details">
+                <div class="product-name">
+                  Cart is Empty
+                </div>
+              </div>              
+            </div>
+          </div>
+        `
+    }
+
+
 }
+
+

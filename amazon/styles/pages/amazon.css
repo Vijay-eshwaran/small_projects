@@ -154,3 +154,9 @@
   padding: 8px;
   border-radius: 50px;
 }
+
+.product-spacer {
+  font-size: 14px;
+  color: green;
+  font-weight: bold;
+} 

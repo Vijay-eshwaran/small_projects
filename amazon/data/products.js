@@ -44,7 +44,6 @@ class Product {
 } 
 
 class Clothing extends Product {
-
   shirtChartLink; 
 
   constructor(productDetails) {
