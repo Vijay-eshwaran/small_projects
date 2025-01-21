@@ -102,11 +102,8 @@ document.querySelectorAll('.js-add-to-cart').forEach(
       const quantitySelect = button.parentElement.querySelector('select');
       const quantity = Number(quantitySelect.value);
 
-      button.classList.add('added-to-cart-button');
-      button.textContent = 'Added';
-      
+      button.textContent = 'Added ✅';
       setTimeout(() => {
-        button.classList.remove('added-to-cart-button');
         button.textContent = 'Add to Cart';
       }, 1000);
 
