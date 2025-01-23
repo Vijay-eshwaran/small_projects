@@ -1,11 +1,7 @@
 import { cart, addToCart } from '../data/cart.js';
-import { products, loadProducts } from '../data/products.js';
+import { products } from '../data/products.js';
 
-loadProducts(rendorProductsGrid);
-
-export function rendorProductsGrid() {
-
-  updateCart();
+updateCart();
 
   let productsHtml = '';
 
@@ -116,4 +112,3 @@ export function rendorProductsGrid() {
     }
   )
 
-}
