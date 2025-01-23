@@ -4,7 +4,16 @@ import { loadProducts } from "../data/products.js";
 // import '../data/backend-practise.js';
 // import '../data/cart-class.js'
 
-loadProducts(() => {
+new Promise( (resolve) => {
+    loadProducts( () => {
+        resolve();
+    });
+}).then( () => {
     rendorOrderSummary();
     rendorPaymentSummary();
-});
+})
+
+// loadProducts(() => {
+//     rendorOrderSummary();
+//     rendorPaymentSummary();
+// });
