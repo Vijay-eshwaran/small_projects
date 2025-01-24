@@ -8,6 +8,9 @@ let search = '';
 
 document.querySelector('.search-button').addEventListener('click', () => {
   search = document.querySelector('.search-bar').value;
+  
+
+  productsHtml = '';
   renderProducts();
 });
 
@@ -16,8 +19,6 @@ renderProducts();
 
 
 function renderProducts() {
-
-  productsHtml = '';
 
   document.querySelector('.js-products-grid').innerHTML = '';
 
@@ -82,6 +83,26 @@ function renderProducts() {
 
   document.querySelector('.js-products-grid').innerHTML = productsHtml;
 
+  document.querySelectorAll('.js-add-to-cart').forEach(
+    (button) => {
+  
+      button.addEventListener('click', () => {
+  
+        const productId = button.dataset.productId;
+        const quantitySelect = button.parentElement.querySelector('select');
+        const quantity = Number(quantitySelect.value);
+  
+        button.textContent = 'Added ✅';
+        setTimeout(() => {
+          button.textContent = 'Add to Cart';
+        }, 1000);
+  
+        addToCart(productId, quantity);
+        updateCart();
+      })
+    }
+  )
+
 }
 
 
@@ -115,23 +136,6 @@ function updateCart() {
 //   }
 // )
 
-document.querySelectorAll('.js-add-to-cart').forEach(
-  (button) => {
 
-    button.addEventListener('click', () => {
 
-      const productId = button.dataset.productId;
-      const quantitySelect = button.parentElement.querySelector('select');
-      const quantity = Number(quantitySelect.value);
-
-      button.textContent = 'Added ✅';
-      setTimeout(() => {
-        button.textContent = 'Add to Cart';
-      }, 1000);
-
-      addToCart(productId, quantity);
-      updateCart();
-    })
-  }
-)
 
