@@ -7,11 +7,19 @@ let productsHtml = '';
 let search = '';
 
 document.querySelector('.search-button').addEventListener('click', () => {
-  search = document.querySelector('.search-bar').value;
+  search = document.querySelector('.search-bar').value; 
   
 
   productsHtml = '';
   renderProducts();
+});
+
+document.querySelector('.search-bar').addEventListener("keydown", (event) => {
+  if(event.key === 'Enter') {
+    search = document.querySelector('.search-bar').value;
+    productsHtml = '';
+    renderProducts();
+  }
 });
 
 renderProducts();

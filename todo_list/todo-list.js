@@ -66,7 +66,7 @@ addBtn.addEventListener("click", () => {
 });
 
 nameInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
+  if (event.key === "enter") {
     if (nameInput.value === "") {
       nameInput.placeholder = "Please enter a task !!!!!";
       return;
