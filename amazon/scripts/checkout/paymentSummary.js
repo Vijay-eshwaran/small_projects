@@ -2,6 +2,11 @@ import { cart, saveToStorage } from "../../data/cart.js";
 import { getProduct } from "../../data/products.js"
 import { getDeliveryOption } from "../../data/deliveryOptions.js";
 import { formatCurrency } from "../utils/money.js"
+import { rendorOrderSummary } from "./orderSummary.js";
+import { orders, saveToStorageOrder,renderOrders} from "../../data/orders.js";
+// import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+
+export const totalprice=0;
 
 export function rendorPaymentSummary() {
 
@@ -59,9 +64,11 @@ export function rendorPaymentSummary() {
             <div class="payment-summary-money">₹${formatCurrency(totalprice)}</div>
           </div>
 
+          <a href="orders.html">
           <button class="place-order-button button-primary js-place-order">
             Place your order
           </button>
+          </a>
     `
 
   document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHtml;
@@ -69,30 +76,22 @@ export function rendorPaymentSummary() {
 
   document.querySelector('.js-place-order').addEventListener('click', () => {
 
-    cart = [];
+
+    cart.forEach( (cartItem) => {
+      orders.push(cartItem);
+    })
+    cart.splice(0, cart.length);
+    saveToStorage();
+    saveToStorageOrder();
+
+    console.log(orders);
+
+    rendorOrderSummary();
+    rendorPaymentSummary();
+
+    renderOrders();
+
+    orders.splice(0, orders.length);
     
-  })
-
-
-//   document.querySelector('.button-primary').addEventListener('click', () => {
-//     if (cart.length == 0) {
-//       alert('Cart is empty');
-//       return;
-//     }
-//     document.querySelector('.js-order-summary').innerHTML = `
-//     <p style="color: #ff6600; font-size: 16px; font-weight: bold;">Cart is empty</p>
-//     <a href="amazon.html" style="color: #0066cc; font-size: 14px; margin-top: 10px; display: inline-block;">
-//         BUY MORE...
-//     </a>
-// `;
-//     document.querySelector('.js-payment-summary').innerHTML = `
-//     <span style="color: #666; font-size: 14px; font-family: Arial, sans-serif; text-align: center; display: inline-block;">
-//         Shop now
-//     </span>
-// `;
-
-//     cart.splice(0, cart.length);
-//     saveToStorage();
-    
-//   })
+  });
 }
