@@ -111,9 +111,9 @@ export function renderOrders() {
             </div>
 
             <div class="product-actions">
-                <a href="tracking.html">
+                <a >
                     <button class="track-package-button button-secondary">
-                        Track package
+                        Order placed
                     </button>
                 </a>
             </div>

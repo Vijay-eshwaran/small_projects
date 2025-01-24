@@ -7,7 +7,7 @@ let productsHtml = '';
 let search = '';
 
 document.querySelector('.search-button').addEventListener('click', () => {
-  search = document.querySelector('.search-bar').value; 
+  search = document.querySelector('.search-bar').value.toLowerCase(); 
   
 
   productsHtml = '';
@@ -16,7 +16,7 @@ document.querySelector('.search-button').addEventListener('click', () => {
 
 document.querySelector('.search-bar').addEventListener("keydown", (event) => {
   if(event.key === 'Enter') {
-    search = document.querySelector('.search-bar').value;
+    search = document.querySelector('.search-bar').value.toLowerCase();
     productsHtml = '';
     renderProducts();
   }
